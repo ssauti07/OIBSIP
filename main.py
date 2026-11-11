@@ -1,46 +1,21 @@
 
-# BMI Calculator
-# Oasis Infobyte Internship - Python Programming
+import random
+import string
 
-print("====================================")
-print("          BMI CALCULATOR")
-print("====================================")
+print("===== PASSWORD GENERATOR =====")
 
-try:
-    # Taking input from the user
-    weight = float(input("Enter your weight in kilograms: "))
-    height = float(input("Enter your height in metres: "))
+# Ask the user for password length
+length = int(input("Enter password length: "))
 
-    # Checking whether the input is valid
-    if weight <= 0 or height <= 0:
-        print("Error: Weight and height must be greater than zero.")
+# Create a collection of characters
+characters = string.ascii_letters + string.digits + string.punctuation
 
-    else:
-        # Calculating BMI
-        bmi = weight / (height ** 2)
+# Generate the password
+password = ""
 
-        # Finding BMI category
-        if bmi < 18.5:
-            category = "Underweight"
+for i in range(length):
+    password += random.choice(characters)
 
-        elif bmi < 25:
-            category = "Normal Weight"
-
-        elif bmi < 30:
-            category = "Overweight"
-
-        else:
-            category = "Obese"
-
-        # Displaying the result
-        print("\n========== BMI RESULT ==========")
-        print("Your BMI is:", round(bmi, 2))
-        print("Your BMI Category is:", category)
-        print("================================")
-
-except ValueError:
-    print("Invalid input! Please enter numbers only.")
-
-print("\nThank you for using BMI Calculator!")
-
-
+# Display the generated password
+print("\nYour Generated Password is:", password)
+print("Thank you for using Password Generator!")
